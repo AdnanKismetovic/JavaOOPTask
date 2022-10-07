@@ -1,0 +1,10 @@
+{
+  "readType": "api",
+  "writeType": ".csv",
+  "source": "https://sample-data-generator-production.up.railway.app/api/v1/products-1",
+  "readingProperties": {
+    "productID": "id",
+    "productName": "name",
+    "productPrice": "price"
+  }
+}
