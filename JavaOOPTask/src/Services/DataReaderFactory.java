@@ -1,9 +1,9 @@
 package Services;
 
-import Enums.DataReadTypes;
+import Enums.DataReadType;
 
 public class DataReaderFactory {
     public static DataReader getDataReader(String type) {
-        return DataReadTypes.valueOf(type).execute();
+        return DataReadType.valueOf(type).getReader();
     }
 }

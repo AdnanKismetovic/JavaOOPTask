@@ -1,10 +1,9 @@
 package Services;
 
-import Enums.DataReadTypes;
-import Enums.DataSaveTypes;
+import Enums.DataSaveType;
 
 public class DataWriterFactory {
     public static DataWriter getDataWriter(String type) {
-        return DataSaveTypes.valueOf(type).execute();
+        return DataSaveType.valueOf(type).getWriter();
     }
 }
