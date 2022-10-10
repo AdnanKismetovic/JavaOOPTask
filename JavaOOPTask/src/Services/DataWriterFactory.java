@@ -1,8 +1,10 @@
 package Services;
 
+import Enums.DataReadTypes;
+import Enums.DataSaveTypes;
+
 public class DataWriterFactory {
     public static DataWriter getDataWriter(String type) {
-        if (".csv".equalsIgnoreCase(type)) return new DataCSVWriter();
-        return null;
+        return DataSaveTypes.valueOf(type).execute();
     }
 }
