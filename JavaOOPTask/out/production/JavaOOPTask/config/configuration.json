@@ -1,6 +1,6 @@
 {
-  "readType": "api",
-  "writeType": ".csv",
+  "readType": "API",
+  "writeType": "CSV",
   "source": "https://sample-data-generator-production.up.railway.app/api/v1/products-1",
   "readingProperties": {
     "productID": "id",
