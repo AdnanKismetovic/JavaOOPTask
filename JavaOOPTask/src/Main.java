@@ -3,6 +3,7 @@ import Models.Product;
 import Models.Result;
 import Services.*;
 import config.Configuration;
+import exceptions.BaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +21,7 @@ public class Main {
             TreeMap<Integer, Result> results = ResultsGenerator.generateResults(products);
             DataWriter dataWriter = DataWriterFactory.getDataWriter(config.getWriteType());
             dataWriter.save(results, logger);
-        } catch (Exception ex) {
+        } catch (BaseException ex) {
             logger.error(ex.getMessage());
         }
     }
