@@ -9,10 +9,12 @@ public enum DataSaveType {
 
     private final String label;
     private final DataWriter writer;
+
     DataSaveType(String label, DataWriter writer) {
         this.label = label;
         this.writer = writer;
     }
+
     public String getLabel() {
         return label;
     }

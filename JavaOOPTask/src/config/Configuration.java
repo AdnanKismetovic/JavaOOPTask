@@ -1,23 +1,25 @@
 package config;
 
 import Models.Config;
-import Models.Result;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
+import java.io.File;
 
 public class Configuration {
 
     private final static String CONFIGURATION_FILE = "src/config/configuration.json";
+    private static final Logger logger = LoggerFactory.getLogger(Configuration.class);
+
     public static Config load() {
+        logger.info("Loading Configuration from file: " + CONFIGURATION_FILE);
         Config config = new Config();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             config = objectMapper.readValue(new File(CONFIGURATION_FILE), Config.class);
         } catch (Exception ex) {
-            System.out.println("Error: " + ex.getMessage());
+            logger.error(ex.getMessage());
         }
         return config;
     }

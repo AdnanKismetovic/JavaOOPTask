@@ -12,6 +12,7 @@ public class Result {
         this.maxValue = maxValue;
         this.averageValue = averageValue;
     }
+
     @Override
     public String toString() {
         return productName + "," + minValue + "," + maxValue + "," + averageValue;
