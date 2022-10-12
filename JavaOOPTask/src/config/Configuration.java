@@ -1,13 +1,10 @@
 package config;
 
 import Models.Config;
-import Models.Result;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.*;
+import java.io.File;
 
 public class Configuration {
 
@@ -21,7 +18,7 @@ public class Configuration {
             logger.info("Creating Config Object...");
             config = objectMapper.readValue(new File(CONFIGURATION_FILE), Config.class);
         } catch (Exception ex) {
-            System.out.println("Error: " + ex.getMessage());
+            logger.error(ex.getMessage());
         }
         return config;
     }

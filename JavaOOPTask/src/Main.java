@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class Main {
-    private static Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
         try {
             Config config = Configuration.load(logger);
@@ -20,7 +20,7 @@ public class Main {
             DataWriter dataWriter = DataWriterFactory.getDataWriter(config.getWriteType(), logger);
             dataWriter.save(results, logger);
         } catch (Exception ex) {
-            System.out.println("Error: " + ex.getMessage());
+            logger.error(ex.getMessage());
         }
     }
 }
