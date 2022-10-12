@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class DataJSONReader implements DataReader{
+public class DataJSONReader implements DataReader {
     private static final Logger logger = LoggerFactory.getLogger(DataJSONReader.class);
+
     @Override
     public List<Product> readData(Config config) {
         List<Product> products = new ArrayList<>();
@@ -26,11 +27,6 @@ public class DataJSONReader implements DataReader{
                 String productID = element.get(config.getReadingProperties().productID).toString();
                 String productName = element.get(config.getReadingProperties().productName).toString();
                 String productPrice = element.get(config.getReadingProperties().productPrice).toString();
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Product ID:" + productID);
-                    logger.debug("Product Name:" + productName);
-                    logger.debug("Product Price:" + productPrice);
-                }
                 if (productID == null || productName == null || productPrice == null)
                     throw new Exception("Some of reading properties might be null");
                 newProduct.setId(Integer.parseInt(productID));

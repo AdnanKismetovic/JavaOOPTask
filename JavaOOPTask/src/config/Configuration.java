@@ -11,13 +11,12 @@ public class Configuration {
 
     private final static String CONFIGURATION_FILE = "src/config/configuration.json";
     private static final Logger logger = LoggerFactory.getLogger(Configuration.class);
+
     public static Config load() {
         logger.info("Loading Configuration from file: " + CONFIGURATION_FILE);
         Config config = new Config();
         try {
-            logger.info("Creating Object Mapper...");
             ObjectMapper objectMapper = new ObjectMapper();
-            logger.info("Creating Config Object...");
             config = objectMapper.readValue(new File(CONFIGURATION_FILE), Config.class);
         } catch (Exception ex) {
             logger.error(ex.getMessage());

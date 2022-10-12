@@ -11,10 +11,10 @@ import java.util.TreeMap;
 public class ResultsGenerator {
     private static StatisticsService statisticsService = new StatisticsServiceImpl();
     private static final Logger logger = LoggerFactory.getLogger(ResultsGenerator.class);
-    public static TreeMap<Integer, Result>  generateResults(List<Product> products) {
+
+    public static TreeMap<Integer, Result> generateResults(List<Product> products) {
         TreeMap<Integer, Result> results = new TreeMap<Integer, Result>();
-        logger.info("Generating results...");
-        for (Product p: products) {
+        for (Product p : products) {
             if (!results.containsKey(p.getId())) {
                 results.put(p.getId(), new Result(p.getName(), statisticsService.getMinPriceForProduct(products, p.getId()), statisticsService.getMaxPriceForProduct(products, p.getId()), statisticsService.getAveragePriceForProduct(products, p.getId())));
             }

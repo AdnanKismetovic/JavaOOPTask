@@ -8,16 +8,14 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class DataCSVWriter implements DataWriter{
+public class DataCSVWriter implements DataWriter {
     @Override
     public void save(TreeMap<Integer, Result> results, Logger logger) {
         String filepath = java.util.UUID.randomUUID() + "results.csv";
-        try (PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(filepath)))){
-            logger.info("Writing results to file...");
+        try (PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(filepath)))) {
             logger.info("File name: " + filepath);
             logger.info("File path: " + Paths.get("").toAbsolutePath() + filepath);
             printWriter.println("id, name, min, max, avg");
-            logger.info("Printing results...");
             for (Map.Entry<Integer, Result> r : results.entrySet()) {
                 printWriter.println(r.getKey() + "," + r.getValue().toString());
             }

@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 
 public class DataReaderFactory {
     private static final Logger logger = LoggerFactory.getLogger(DataReaderFactory.class);
+
     public static DataReader getDataReader(String type) {
-        logger.info("Getting reader for type: " + type);
         try {
             DataReader dataReader = DataReadType.valueOf(type).getReader();
             return dataReader;
