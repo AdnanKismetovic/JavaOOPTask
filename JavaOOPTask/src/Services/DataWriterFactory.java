@@ -2,18 +2,18 @@ package Services;
 
 import Enums.DataSaveType;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DataWriterFactory {
-    public static DataWriter getDataWriter(String type, Logger logger) {
+    private static final Logger logger = LoggerFactory.getLogger(DataWriterFactory.class);
+    public static DataWriter getDataWriter(String type) {
         logger.info("Getting writer for type: " + type);
-        DataWriter dataWriter = null;
         try {
-            dataWriter = DataSaveType.valueOf(type).getWriter();
-            if (dataWriter == null)
-                throw new Exception("Writer isn't successfully created");
-        } catch (Exception e) {
+            DataWriter dataWriter = DataSaveType.valueOf(type).getWriter();
+            return dataWriter;
+        } catch (IllegalArgumentException e) {
            logger.error(e.getMessage());
+           throw new IllegalArgumentException("Writer not created");
         }
-        return dataWriter;
     }
 }

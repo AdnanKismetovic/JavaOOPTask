@@ -3,13 +3,15 @@ package config;
 import Models.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
 public class Configuration {
 
     private final static String CONFIGURATION_FILE = "src/config/configuration.json";
-    public static Config load(Logger logger) {
+    private static final Logger logger = LoggerFactory.getLogger(Configuration.class);
+    public static Config load() {
         logger.info("Loading Configuration from file: " + CONFIGURATION_FILE);
         Config config = new Config();
         try {

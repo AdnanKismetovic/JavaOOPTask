@@ -13,11 +13,11 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
         try {
-            Config config = Configuration.load(logger);
-            DataReader dataReader = DataReaderFactory.getDataReader(config.getReadType(), logger);
-            List<Product> products = dataReader.readData(config, logger);
-            TreeMap<Integer, Result> results = ResultsGenerator.generateResults(products, logger);
-            DataWriter dataWriter = DataWriterFactory.getDataWriter(config.getWriteType(), logger);
+            Config config = Configuration.load();
+            DataReader dataReader = DataReaderFactory.getDataReader(config.getReadType());
+            List<Product> products = dataReader.readData(config);
+            TreeMap<Integer, Result> results = ResultsGenerator.generateResults(products);
+            DataWriter dataWriter = DataWriterFactory.getDataWriter(config.getWriteType());
             dataWriter.save(results, logger);
         } catch (Exception ex) {
             logger.error(ex.getMessage());

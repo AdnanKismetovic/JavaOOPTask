@@ -5,6 +5,7 @@ import Models.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -12,8 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 public class DataJSONReader implements DataReader{
+    private static final Logger logger = LoggerFactory.getLogger(DataJSONReader.class);
     @Override
-    public List<Product> readData(Config config, Logger logger) {
+    public List<Product> readData(Config config) {
         List<Product> products = new ArrayList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();

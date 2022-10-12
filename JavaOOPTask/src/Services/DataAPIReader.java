@@ -5,6 +5,7 @@ import Models.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -12,8 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 public class DataAPIReader implements DataReader{
+    private static final Logger logger = LoggerFactory.getLogger(DataAPIReader.class);
     @Override
-    public List<Product> readData(Config config, Logger logger) {
+    public List<Product> readData(Config config) {
         logger.info("Reading data from source: " + config.getSource());
         List<Product> products = new ArrayList<>();
         try {
