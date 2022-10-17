@@ -1,7 +1,7 @@
-import Models.Config;
-import Models.Product;
-import Models.Result;
-import Services.*;
+import models.Config;
+import models.Product;
+import models.Result;
+import services.*;
 import config.Configuration;
 import exceptions.BaseException;
 import org.slf4j.Logger;

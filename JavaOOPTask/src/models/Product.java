@@ -1,6 +1,4 @@
-package Models;
-
-import java.util.ArrayList;
+package models;
 
 public class Product {
 

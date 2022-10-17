@@ -1,7 +1,7 @@
-package Services;
+package services;
 
-import Models.Product;
-import Models.Result;
+import models.Product;
+import models.Result;
 
 import java.util.List;
 import java.util.TreeMap;

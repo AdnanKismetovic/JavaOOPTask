@@ -1,6 +1,4 @@
-package Models;
-
-import java.util.List;
+package models;
 
 public class Config {
     private String readType;

@@ -1,6 +1,6 @@
-package Services;
+package services;
 
-import Enums.DataReadType;
+import enums.DataReadType;
 import exceptions.ItemNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

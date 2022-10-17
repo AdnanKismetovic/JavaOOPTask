@@ -1,7 +1,7 @@
-package Enums;
+package enums;
 
-import Services.DataCSVWriter;
-import Services.DataWriter;
+import services.DataCSVWriter;
+import services.DataWriter;
 
 public enum DataSaveType {
     CSV("csv", new DataCSVWriter()),

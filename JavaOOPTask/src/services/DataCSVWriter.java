@@ -1,6 +1,6 @@
-package Services;
+package services;
 
-import Models.Result;
+import models.Result;
 import exceptions.ObjectCreationException;
 import org.slf4j.Logger;
 

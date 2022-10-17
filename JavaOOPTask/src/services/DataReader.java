@@ -1,7 +1,7 @@
-package Services;
+package services;
 
-import Models.Config;
-import Models.Product;
+import models.Config;
+import models.Product;
 import exceptions.BaseException;
 
 import java.util.List;

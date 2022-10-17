@@ -1,8 +1,8 @@
-package Enums;
+package enums;
 
-import Services.DataAPIReader;
-import Services.DataJSONReader;
-import Services.DataReader;
+import services.DataAPIReader;
+import services.DataJSONReader;
+import services.DataReader;
 
 public enum DataReadType {
     API("api", new DataAPIReader()),
