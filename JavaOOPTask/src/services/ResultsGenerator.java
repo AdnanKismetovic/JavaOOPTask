@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class ResultsGenerator {
-    private static final StatisticsService statisticsService = new StatisticsServiceImpl();
+    private static final StatisticsService statisticsService = new StatisticsServiceStreamsImpl();
 
     public static TreeMap<Integer, Result> generateResults(List<Product> products) {
         TreeMap<Integer, Result> results = new TreeMap<>();
