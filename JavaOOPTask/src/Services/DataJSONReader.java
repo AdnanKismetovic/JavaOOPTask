@@ -4,8 +4,8 @@ import Models.Config;
 import Models.Product;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import exceptions.BaseException;
+import exceptions.ItemNotFoundException;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -13,10 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 public class DataJSONReader implements DataReader {
-    private static final Logger logger = LoggerFactory.getLogger(DataJSONReader.class);
 
     @Override
-    public List<Product> readData(Config config) {
+    public List<Product> readData(Config config) throws BaseException {
         List<Product> products = new ArrayList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -28,14 +27,14 @@ public class DataJSONReader implements DataReader {
                 String productName = element.get(config.getReadingProperties().productName).toString();
                 String productPrice = element.get(config.getReadingProperties().productPrice).toString();
                 if (productID == null || productName == null || productPrice == null)
-                    throw new Exception("Some of reading properties might be null");
+                    throw new ItemNotFoundException("Some of reading properties might be null", "Check if names of properties in JSON file are the same as in config file.");
                 newProduct.setId(Integer.parseInt(productID));
                 newProduct.setName(productName);
                 newProduct.setPrice(Double.parseDouble(productPrice));
                 products.add(newProduct);
             }
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            throw new BaseException(ex.getMessage());
         }
         return products;
     }

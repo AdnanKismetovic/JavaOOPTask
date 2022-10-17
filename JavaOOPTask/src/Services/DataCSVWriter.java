@@ -1,6 +1,7 @@
 package Services;
 
 import Models.Result;
+import exceptions.ObjectCreationException;
 import org.slf4j.Logger;
 
 import java.io.*;
@@ -10,7 +11,7 @@ import java.util.TreeMap;
 
 public class DataCSVWriter implements DataWriter {
     @Override
-    public void save(TreeMap<Integer, Result> results, Logger logger) {
+    public void save(TreeMap<Integer, Result> results, Logger logger) throws ObjectCreationException {
         String filepath = java.util.UUID.randomUUID() + "results.csv";
         try (PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(filepath)))) {
             logger.info("File name: " + filepath);
@@ -21,7 +22,7 @@ public class DataCSVWriter implements DataWriter {
             }
             printWriter.flush();
         } catch (IOException e) {
-            logger.error(e.getMessage());
+            throw new ObjectCreationException(e.getMessage(), "Error can occur during creation of FileWriter BufferedWriter or PrintWriter");
         }
     }
 }
